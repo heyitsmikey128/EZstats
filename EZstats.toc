@@ -1,0 +1,7 @@
+## Interface: 11306
+
+## Title: EZstats
+## Author: L33T
+## Version: 1.0.2
+
+EZstats.lua
