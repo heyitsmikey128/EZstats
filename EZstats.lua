@@ -19,6 +19,26 @@ local function ModifyTooltip(tooltip)
                 leftTextObject:SetText("Equip: +" .. damage .. " Shadow Damage")
             end
 
+            if leftText and string.find(leftText, "Equip: Increases damage done by Arcane") then
+                local damage = string.match(leftText, "by up to (%d+)")
+                leftTextObject:SetText("Equip: +" .. damage .. " Arcane Damage")
+            end
+
+            if leftText and string.find(leftText, "Equip: Increases damage done by Frost") then
+                local damage = string.match(leftText, "by up to (%d+)")
+                leftTextObject:SetText("Equip: +" .. damage .. " Frost Damage")
+            end
+            
+            if leftText and string.find(leftText, "Equip: Increases damage done by Nature") then
+                local damage = string.match(leftText, "by up to (%d+)")
+                leftTextObject:SetText("Equip: +" .. damage .. " Nature Damage")
+            end
+
+            if leftText and string.find(leftText, "Equip: Increases damage done by Holy") then
+                local damage = string.match(leftText, "by up to (%d+)")
+                leftTextObject:SetText("Equip: +" .. damage .. " Holy Damage")
+            end
+
             if leftText and string.find(leftText, "Equip: Improves your chance to hit") then
                 local crit = string.match(leftText, "critical strike with all spells and attacks by (%d+)")
                 leftTextObject:SetText("Equip: " .. crit .. "% Crit")
