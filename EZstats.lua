@@ -11,7 +11,7 @@ local function ModifyTooltip(tooltip)
             -- Check if the left text object contains the pattern you're looking for                      
             if leftText and string.find(leftText, "Equip: Increases damage and healing done") then
                 local both = string.match(leftText, "by up to (%d+)")
-                leftTextObject:SetText("Equip: +" .. both .. " Spell Healing\n" .. "Equip: +" .. both .. " Spell Damage\n")
+                leftTextObject:SetText("Equip: +" .. both .. " Spell Damage/Healing")
             end
          
             if leftText and string.find(leftText, "Equip: Increases damage done by Shadow") then
@@ -51,7 +51,7 @@ local function ModifyTooltip(tooltip)
 
             if leftText and string.find(leftText, "Equip: Increases healing done by spells") then
                 local healing = string.match(leftText, "by up to (%d+)")
-                leftTextObject:SetText("Equip: +" .. healing .. " Spell Healing\n" .. "Equip: +" .. damage .. " Spell Damage\n")
+                leftTextObject:SetText("Equip: +" .. healing .. " Spell Healing")
             end
 
             if leftText and string.find(leftText, "Equip: Increases healing done by up to") then
