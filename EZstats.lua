@@ -41,17 +41,17 @@ local function ModifyTooltip(tooltip)
 
             if leftText and string.find(leftText, "Equip: Improves your chance to get a critical strike with spells") then
                 local crit = string.match(leftText, "critical strike with spells by (%d+)")
-                leftTextObject:SetText("Equip: " .. crit .. "% Crit")
+                leftTextObject:SetText("Equip: +" .. crit .. "% Spell Crit")
             end
 
             if leftText and string.find(leftText, "Equip: Improves your chance to get a critical strike with all") then
                 local crit = string.match(leftText, "critical strike with all spells and attacks by (%d+)")
-                leftTextObject:SetText("Equip: " .. crit .. "% Crit")
+                leftTextObject:SetText("Equip: +" .. crit .. "% Crit")
             end
             
             if leftText and string.find(leftText, "Equip: Improves your chance to hit") then
                 local hit = string.match(leftText, "hit with all spells and attacks by (%d+)")
-                leftTextObject:SetText("Equip: " .. hit .. "% Hit")
+                leftTextObject:SetText("Equip: +" .. hit .. "% Hit")
             end
 
             if leftText and string.find(leftText, "Equip: Increases healing done by spells") then
