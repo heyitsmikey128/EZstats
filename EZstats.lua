@@ -22,7 +22,7 @@ local function ModifyTooltip(tooltip)
             end
             
             if leftText and string.find(leftText, "Equip: Increases damage and healing done") then
-                leftTextObject:SetText("Equip: +" .. amount .. " Spell Healing\n" .. "Equip: +" .. amount .. " Spell Damage\n")
+                leftTextObject:SetText("Equip: +" .. amount .. " Spell Damage and Healing\n")
             end
 
          
