@@ -49,9 +49,14 @@ local function ModifyTooltip(tooltip)
                 leftTextObject:SetText("Equip: +" .. crit .. "% Crit")
             end
             
-            if leftText and string.find(leftText, "Equip: Improves your chance to hit") then
+            if leftText and string.find(leftText, "Equip: Improves your chance to hit with") then
                 local hit = string.match(leftText, "hit with all spells and attacks by (%d+)")
                 leftTextObject:SetText("Equip: +" .. hit .. "% Hit")
+            end
+
+            if leftText and string.find(leftText, "Equip: Improves your chance to hit by") then
+                local meleehit = string.match(leftText, "hit by (%d+)")
+                leftTextObject:SetText("Equip: +" .. meleehit .. "% Melee Hit")
             end
 
             if leftText and string.find(leftText, "Equip: Increases healing done by spells") then
@@ -65,6 +70,21 @@ local function ModifyTooltip(tooltip)
                 leftTextObject:SetText("Equip: +" .. healing .. " Spell Healing\n" .. "Equip: +" .. damage .. " Spell Damage\n")
             end
             
+            if leftText and string.find(leftText, "Equip: Increases the block value of your shield by") then
+                local block = string.match(leftText, "by (%d+)")
+                leftTextObject:SetText("Equip: +" .. block .. " Block")
+            end
+
+            if leftText and string.find(leftText, "Equip: Increases your chance to block attacks with a shield by") then
+                local blockchance = string.match(leftText, "with a shield by (%d+)")
+                leftTextObject:SetText("Equip: +" .. blockchance .. "% Block")
+            end
+        
+            if leftText and string.find(leftText, "Equip: Reduces the chance for your attacks to be dodged or parried by") then
+                local expertise = string.match(leftText, "be dodged or parried by (%d+)")
+                leftTextObject:SetText("Equip: +" .. expertise .. "% Expertise")
+            end
+        
         end
         
         -- Similar logic can be applied to the right text object if needed
