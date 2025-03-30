@@ -13,7 +13,18 @@ local function ModifyTooltip(tooltip)
                 local both = string.match(leftText, "by up to (%d+)")
                 leftTextObject:SetText("Equip: +" .. both .. " Spell Damage/Healing")
             end
-         
+
+            if leftText and string.find(leftText, "Equip: Increases healing done by spells") then
+                local healing = string.match(leftText, "by up to (%d+)")
+                leftTextObject:SetText("Equip: +" .. healing .. " Spell Healing")
+            end
+
+            if leftText and string.find(leftText, "Equip: Increases healing done by up to") then
+                local healing = string.match(leftText, "healing done by up to (%d+)")
+                local damage = string.match(leftText, "damage done by up to (%d+)")
+                leftTextObject:SetText("Equip: +" .. healing .. " Spell Healing\n" .. "Equip: +" .. damage .. " Spell Damage\n")
+            end
+            
             if leftText and string.find(leftText, "Equip: Increases damage done by Shadow") then
                 local damage = string.match(leftText, "by up to (%d+)")
                 leftTextObject:SetText("Equip: +" .. damage .. " Shadow Damage")
@@ -48,28 +59,27 @@ local function ModifyTooltip(tooltip)
                 local crit = string.match(leftText, "critical strike with all spells and attacks by (%d+)")
                 leftTextObject:SetText("Equip: +" .. crit .. "% Crit")
             end
+
+            if leftText and string.find(leftText, "Equip: Improves your chance to get a critical strike by") then
+                local crit = string.match(leftText, "critical strike by (%d+)")
+                leftTextObject:SetText("Equip: +" .. crit .. "% Melee/Ranged Crit")
+            end
             
-            if leftText and string.find(leftText, "Equip: Improves your chance to hit with") then
+            if leftText and string.find(leftText, "Equip: Improves your chance to hit with all") then
                 local hit = string.match(leftText, "hit with all spells and attacks by (%d+)")
                 leftTextObject:SetText("Equip: +" .. hit .. "% Hit")
             end
 
+            if leftText and string.find(leftText, "Equip: Improves your chance to hit with spells") then
+                local spellhit = string.match(leftText, "hit with spells by (%d+)")
+                leftTextObject:SetText("Equip: +" .. spellhit .. "% Spell Hit")
+            end
+
             if leftText and string.find(leftText, "Equip: Improves your chance to hit by") then
                 local meleehit = string.match(leftText, "hit by (%d+)")
-                leftTextObject:SetText("Equip: +" .. meleehit .. "% Melee Hit")
+                leftTextObject:SetText("Equip: +" .. meleehit .. "% Melee/Ranged Hit")
             end
 
-            if leftText and string.find(leftText, "Equip: Increases healing done by spells") then
-                local healing = string.match(leftText, "by up to (%d+)")
-                leftTextObject:SetText("Equip: +" .. healing .. " Spell Healing")
-            end
-
-            if leftText and string.find(leftText, "Equip: Increases healing done by up to") then
-                local healing = string.match(leftText, "healing done by up to (%d+)")
-                local damage = string.match(leftText, "damage done by up to (%d+)")
-                leftTextObject:SetText("Equip: +" .. healing .. " Spell Healing\n" .. "Equip: +" .. damage .. " Spell Damage\n")
-            end
-            
             if leftText and string.find(leftText, "Equip: Increases the block value of your shield by") then
                 local block = string.match(leftText, "by (%d+)")
                 leftTextObject:SetText("Equip: +" .. block .. " Block")

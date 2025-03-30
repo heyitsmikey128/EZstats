@@ -3,7 +3,7 @@
 ## Title: EZstats
 ## Author: L33T
 ## Co-Author: Revoker
-## Version: 1.0.4
+## Version: 1.0.5
 ## Built for Classic Wow and SoD
 
 EZstats.lua
