@@ -123,7 +123,12 @@ local function ModifyTooltip(tooltip)
         
             if leftText and string.find(leftText, "Equip: Increases your casting speed of") then
                 local haste = string.match(leftText, "spells by (%d+)")
-                leftTextObject:SetText("Equip: +" .. haste .. "% Haste (Non-channeled)")
+                leftTextObject:SetText("Equip: +" .. haste .. "% Spell Haste (Non-channeled)")
+            end
+
+            if leftText and string.find(leftText, "Equip: Increases your casting speed by") then
+                local haste = string.match(leftText, "speed by (%d+)")
+                leftTextObject:SetText("Equip: +" .. haste .. "% Spell Haste")
             end
 
             if leftText and string.find(leftText, "Equip: Increases your attack speed") then
